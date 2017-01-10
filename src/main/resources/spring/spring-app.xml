@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+
+    <!--<bean class="com.vlas.ermakov.repository.datajpa.DataJpaRestaurantRepositoryImpl" id="Repository"></bean>-->
+    <!--<bean class="com.vlas.ermakov.repository.datajpa.DataJpaRestaurantRepositoryImpl" id="restaurantRepository"></bean>-->
+    <!--<bean class="com.vlas.ermakov.repository.datajpa.DataJpaUserRepositoryImpl" id="userRepository"></bean>-->
+    <!--<import resource="spring-tools.xml"/>-->
+    <!--<import resource="spring-security.xml"/>-->
+
+    <task:annotation-driven executor="executor" scheduler="scheduler"/>
+    <task:executor id="executor" pool-size="5"/>
+    <task:scheduler id="scheduler" pool-size="10"/>
+
+    <context:annotation-config/>
+
+    <!--<context:component-scan base-package="com.vlas.**.model"/>-->
+    <context:component-scan base-package="com.vlas.**.service"/>
+    <context:component-scan base-package="com.vlas.**.web"/>
+</beans>
