@@ -77,7 +77,6 @@ public class Restaurant extends NamedEntity {
     public String toString() {
         return "Restaurant{" +
                 "name='" + name + '\'' +
-                ", meals=" + meals +
                 '}';
     }
 }

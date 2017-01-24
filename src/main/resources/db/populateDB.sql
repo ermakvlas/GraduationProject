@@ -6,9 +6,13 @@ DELETE FROM restaurants;
 
 ALTER SEQUENCE global_seq RESTART WITH 100000;
 
+INSERT INTO RESTAURANTS (id, name) VALUES
+  (110000, 'McDonalds'),
+  (110001, 'BurgerKing');
+
 -- user
-INSERT INTO users (name, email, password)
-VALUES ('User', 'user@yandex.ru', '$2a$10$Sh0ZD2NFrzRRJJEKEWn8l.92ROEuzlVyzB9SV1AM8fdluPR0aC1ni');
+INSERT INTO users (name, email, password, restaurant_id)
+VALUES ('User', 'user@yandex.ru', '$2a$10$Sh0ZD2NFrzRRJJEKEWn8l.92ROEuzlVyzB9SV1AM8fdluPR0aC1ni', 110000);
 
 -- admin
 INSERT INTO users (name, email, password)
@@ -18,10 +22,6 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_USER', 100000),
   ('ROLE_ADMIN', 100001),
   ('ROLE_USER', 100001);
-
-INSERT INTO RESTAURANTS (id, name) VALUES
-  (110000, 'McDonalds'),
-  (110001, 'BurgerKing');
 
 INSERT INTO meals (date_time, description, rest_id) VALUES
   ('2015-05-30 10:00:00', 'Завтрак', 110000),
