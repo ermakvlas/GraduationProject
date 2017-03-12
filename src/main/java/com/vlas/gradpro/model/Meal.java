@@ -35,6 +35,11 @@ public class Meal extends BaseEntity {
     @SafeHtml
     private String description;
 
+    @JoinColumn(name = "price", nullable = false)
+    @NotNull
+    @NotEmpty
+    private Integer price;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rest_id", nullable = false)
     private Restaurant restaurant;
@@ -84,11 +89,20 @@ public class Meal extends BaseEntity {
         this.restaurant = restaurant;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Meal{" +
                 "dateTime=" + dateTime +
                 ", description='" + description + '\'' +
+                ", price=" + price +
                 ", restaurant=" + restaurant +
                 '}';
     }

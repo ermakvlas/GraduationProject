@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.vlas.gradpro.web.VoteServlet" %>
 <%@ page import="org.springframework.context.ConfigurableApplicationContext" %>
 <%@ page import="org.springframework.context.support.ClassPathXmlApplicationContext" %>
 <%@ page import="java.util.Arrays" %>
@@ -26,9 +25,6 @@
 String a equals <%=a%>
 <br>
 AppContextes are: <br>
-<c:forEach items="${appCont}" var="item">
-    ${item}<br>
-</c:forEach>
 <br>
 Restaurant list through RestController:
 <br>

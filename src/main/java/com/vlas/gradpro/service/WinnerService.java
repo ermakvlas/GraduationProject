@@ -24,7 +24,7 @@ public class WinnerService {
     @Autowired
     private UserRepository repository;
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(cron = "0 0 11 * * ?")
     public void getWinner(){
 
         ArrayList<Restaurant> restaurants = new ArrayList<>();
