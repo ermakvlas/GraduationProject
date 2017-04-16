@@ -6,14 +6,13 @@ import com.vlas.gradpro.util.exception.NotFoundException;
 
 import java.util.List;
 
-/**
- * Created by nassuka on 14.12.2016.
- */
 public interface RestaurantService {
 
     Restaurant save(Restaurant restaurant);
 
     void delete(int id) throws NotFoundException;
+
+    void vote(int id) throws NotFoundException;
 
     Restaurant get(int id) throws NotFoundException;
 

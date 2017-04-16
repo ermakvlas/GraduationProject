@@ -11,19 +11,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @SuppressWarnings("JpaQlInspection")
-//@NamedQueries({
-//        @NamedQuery(name = Meal.ALL_SORTED, query = "SELECT m FROM Meal m WHERE m.user.id=:userId ORDER BY m.dateTime DESC"),
-//        @NamedQuery(name = Meal.DELETE, query = "DELETE FROM Meal m WHERE m.id=:id AND m.user.id=:userId"),
-//
-//        @NamedQuery(name = Meal.UPDATE, query = "UPDATE Meal m SET m.dateTime = :datetime, m.description=:description where m.id=:id and m.restaurant.id=:restId")
-//})
+
 @Entity
 @Table(name = "meals", uniqueConstraints = {@UniqueConstraint(columnNames = {"rest_id", "date_time"}, name = "meals_unique_user_description_idx")})
 public class Meal extends BaseEntity {
-//    public static final String GET = "Meal.get";
-//    public static final String ALL_SORTED = "Meal.getAll";
-//    public static final String DELETE = "Meal.delete";
-//    public static final String UPDATE = "Meal.update";
 
     @Column(name = "date_time", nullable = false)
     @NotNull
@@ -37,7 +28,6 @@ public class Meal extends BaseEntity {
 
     @JoinColumn(name = "price", nullable = false)
     @NotNull
-    @NotEmpty
     private Integer price;
 
     @ManyToOne(fetch = FetchType.LAZY)

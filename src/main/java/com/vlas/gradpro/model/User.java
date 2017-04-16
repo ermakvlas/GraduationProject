@@ -1,9 +1,8 @@
 package com.vlas.gradpro.model;
 
 
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -13,13 +12,9 @@ import org.springframework.util.CollectionUtils;
 import javax.persistence.*;
 import java.util.*;
 
-//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Entity
-//@NamedEntityGraph(name = User.GRAPH_WITH_MEALS, attributeNodes = {@NamedAttributeNode("meals")})
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
 public class User extends NamedEntity {
-
-//    public static final String GRAPH_WITH_MEALS = "User.withMeals";
 
     @Column(name = "email", nullable = false, unique = true)
     @Email
@@ -30,7 +25,7 @@ public class User extends NamedEntity {
     @Column(name = "password", nullable = false)
     @NotEmpty
     @Length(min = 5)
-//    @JsonView(View.REST.class)
+    @JsonIgnore
     @SafeHtml
     private String password;
 
@@ -44,8 +39,6 @@ public class User extends NamedEntity {
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role")
     @ElementCollection(fetch = FetchType.EAGER)
-//    @BatchSize(size = 200)
-//    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Role> roles;
 
     @ManyToOne(fetch = FetchType.EAGER)

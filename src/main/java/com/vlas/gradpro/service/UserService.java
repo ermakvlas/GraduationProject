@@ -1,7 +1,6 @@
 package com.vlas.gradpro.service;
 
 
-import com.vlas.gradpro.model.Restaurant;
 import com.vlas.gradpro.model.User;
 import com.vlas.gradpro.util.exception.NotFoundException;
 
@@ -20,8 +19,6 @@ public interface UserService {
     List<User> getAll();
 
     void update(User user);
-
-    void evictCache();
 
     void enable(int id, boolean enable);
 

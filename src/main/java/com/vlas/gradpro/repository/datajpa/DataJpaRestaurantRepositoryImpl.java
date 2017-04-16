@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-/**
- * Created by nassuka on 14.12.2016.
- */
 @Repository
 public class DataJpaRestaurantRepositoryImpl implements RestaurantRepository {
 

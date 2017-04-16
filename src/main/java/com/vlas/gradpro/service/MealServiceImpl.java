@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 
 @Service("mealService")
@@ -29,7 +31,7 @@ public class MealServiceImpl implements MealService {
     }
 
     @Override
-    public Collection<Meal> getAll(int restId) {
+    public List<Meal> getAll(int restId) {
         return repository.getAll(restId);
     }
 

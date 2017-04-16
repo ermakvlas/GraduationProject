@@ -18,6 +18,11 @@ public interface CrudUserRepository extends JpaRepository<User, Integer> {
     @Query("DELETE FROM User u WHERE u.id=:id")
     int delete(@Param("id") int id);
 
+    @Transactional
+    @Modifying
+    @Query("UPDATE User SET restaurant = null")
+    void clearAllVotes();
+
     @Override
     @Transactional
     User save(User user);

@@ -1,6 +1,7 @@
 package com.vlas.gradpro.service;
 
 
+import com.vlas.gradpro.AuthorizedUser;
 import com.vlas.gradpro.model.Restaurant;
 import com.vlas.gradpro.model.User;
 import com.vlas.gradpro.repository.RestaurantRepository;
@@ -15,9 +16,6 @@ import java.util.Comparator;
 import java.util.List;
 
 
-/**
- * Created by nassuka on 14.12.2016.
- */
 @Service("restaurantService")
 public class RestaurantServiceImpl implements RestaurantService {
 
@@ -36,6 +34,13 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public void delete(int id) {
         ExceptionUtil.checkNotFoundWithId(repository.delete(id), id);
+    }
+
+    @Override
+    public void vote(int id) throws NotFoundException {
+        User user = AuthorizedUser.get().getUser();
+        user.setRestaurant(repository.get(id));
+        userRepository.save(user);
     }
 
     @Override

@@ -5,9 +5,6 @@ import com.vlas.gradpro.model.Restaurant;
 
 import java.util.List;
 
-/**
- * Created by nassuka on 13.12.2016.
- */
 public interface RestaurantRepository {
 
     Restaurant save(Restaurant restaurant);

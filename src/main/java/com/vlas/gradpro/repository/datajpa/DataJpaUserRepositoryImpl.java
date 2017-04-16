@@ -42,4 +42,8 @@ public class DataJpaUserRepositoryImpl implements UserRepository {
         return crudRepository.findAll(SORT_NAME_EMAIL);
     }
 
+    @Override
+    public void clearAllVotes() {
+        crudRepository.clearAllVotes();
+    }
 }

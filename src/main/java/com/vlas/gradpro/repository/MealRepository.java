@@ -4,6 +4,7 @@ package com.vlas.gradpro.repository;
 import com.vlas.gradpro.model.Meal;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface MealRepository {
     // null if updated meal do not belong to userId
@@ -16,7 +17,7 @@ public interface MealRepository {
     Meal get(int id);
 
     // ORDERED dateTime
-    Collection<Meal> getAll(int restId);
+    List<Meal> getAll(int restId);
 
     default Meal getWithRestaurant(int id) {
         throw new UnsupportedOperationException();

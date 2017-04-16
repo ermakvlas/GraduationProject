@@ -35,7 +35,6 @@ public interface CrudRestaurantRepository extends JpaRepository<Restaurant, Inte
     @Query("SELECT r FROM Restaurant r WHERE r.name=?1")
     Restaurant getByName(String name);
 
-//    @EntityGraph(value = User.GRAPH_WITH_MEALS)
     @Query("SELECT r FROM Restaurant r WHERE r.id=?1")
     Restaurant getWithMeals(int id);
 
