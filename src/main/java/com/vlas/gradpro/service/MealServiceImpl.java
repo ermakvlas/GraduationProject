@@ -47,4 +47,8 @@ public class MealServiceImpl implements MealService {
         return repository.save(meal, restId);
     }
 
+    @Override
+    public Meal getWithRestaurant(int id, int restId) {
+        return ExceptionUtil.checkNotFoundWithId(repository.getWithRestaurant(id, restId), id);
+    }
 }

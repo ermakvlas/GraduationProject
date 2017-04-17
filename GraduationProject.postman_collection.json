@@ -1,0 +1,187 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GraduationProject",
+		"_postman_id": "13e565e3-4bb9-e833-de29-a01f60f96422",
+		"description": "Testing of REST-controllers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AdminRestController",
+			"description": "",
+			"item": [
+				{
+					"name": "Admin authorization",
+					"request": {
+						"url": "http://localhost:8080/gradpro/spring_security_check?username=admin@gmail.com&password=admin",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete restaurant",
+					"request": {
+						"url": "http://localhost:8080/gradpro/admin/restaurants?id=110001",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create restaurant",
+					"request": {
+						"url": "http://localhost:8080/gradpro/admin/restaurants",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"TestRest\",\n\t\"meals\": null\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create meal",
+					"request": {
+						"url": "http://localhost:8080/gradpro/admin/restaurant/110000",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dateTime\": \"2017-04-17T22:00\",\n\t\"description\": \"newMeal\",\n\t\"price\": 700\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get users",
+					"request": {
+						"url": "http://localhost:8080/gradpro/admin/users",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserRestController",
+			"description": "Testing of UserRestController",
+			"item": [
+				{
+					"name": "User authorization ",
+					"request": {
+						"url": "http://localhost:8080/gradpro/spring_security_check?username=user@yandex.ru&password=password",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Authorization with:\nusername: user@yandex.ru\npassword: password"
+					},
+					"response": []
+				},
+				{
+					"name": "Restaurants",
+					"request": {
+						"url": "http://localhost:8080/gradpro/restaurants",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Restaurants list"
+					},
+					"response": []
+				},
+				{
+					"name": "Restaurant by id",
+					"request": {
+						"url": "http://localhost:8080/gradpro/restaurants/110000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Restaurant by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get results",
+					"request": {
+						"url": "http://localhost:8080/gradpro/restaurants/results",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Get results of voting"
+					},
+					"response": []
+				},
+				{
+					"name": "Voting",
+					"request": {
+						"url": "http://localhost:8080/gradpro/restaurants/vote?id=110001",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic dXNlckB5YW5kZXgucnU6cGFzc3dvcmQ=",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Voting for restaurant"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

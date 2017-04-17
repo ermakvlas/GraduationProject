@@ -13,16 +13,10 @@ import static java.util.Objects.requireNonNull;
 public class AuthorizedUser extends org.springframework.security.core.userdetails.User {
     private static final long serialVersionUID = 1L;
 
-    private static final HashSet<Role> roles = new HashSet<Role>();
-
-    {
-        roles.add(Role.ROLE_USER);
-    }
-
     private User user;
 
     public AuthorizedUser(User user) {
-        super(user.getEmail(), user.getPassword(), roles);
+        super(user.getEmail(), user.getPassword(), user.getRoles());
         this.user = user;
     }
 

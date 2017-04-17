@@ -1,12 +1,20 @@
 package com.vlas.gradpro.model;
 
 
+
+
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Proxy(lazy=false)
+@NamedEntityGraph(name = Restaurant.GRAPH_WITH_MEALS, attributeNodes = {@NamedAttributeNode("meals")})
 @Table(name = "restaurants", uniqueConstraints = {@UniqueConstraint(columnNames = "name", name = "restaurants_unique_name_idx")})
 public class Restaurant extends NamedEntity {
+
+    public static final String GRAPH_WITH_MEALS = "Restaurant.withMeals";
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "restaurant")
     @OrderBy("description DESC")

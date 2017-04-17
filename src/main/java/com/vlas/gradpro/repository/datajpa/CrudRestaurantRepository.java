@@ -2,6 +2,7 @@ package com.vlas.gradpro.repository.datajpa;
 
 
 import com.vlas.gradpro.model.Restaurant;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -35,6 +36,7 @@ public interface CrudRestaurantRepository extends JpaRepository<Restaurant, Inte
     @Query("SELECT r FROM Restaurant r WHERE r.name=?1")
     Restaurant getByName(String name);
 
+    @EntityGraph(value = Restaurant.GRAPH_WITH_MEALS)
     @Query("SELECT r FROM Restaurant r WHERE r.id=?1")
     Restaurant getWithMeals(int id);
 

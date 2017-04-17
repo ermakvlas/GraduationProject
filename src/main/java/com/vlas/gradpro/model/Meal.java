@@ -1,5 +1,8 @@
 package com.vlas.gradpro.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.Proxy;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.SafeHtml;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -32,6 +35,7 @@ public class Meal extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rest_id", nullable = false)
+    @JsonIgnore
     private Restaurant restaurant;
 
     public Meal() {

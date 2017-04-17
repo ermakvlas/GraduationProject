@@ -19,7 +19,7 @@ public interface MealRepository {
     // ORDERED dateTime
     List<Meal> getAll(int restId);
 
-    default Meal getWithRestaurant(int id) {
+    default Meal getWithRestaurant(int id, int restId) {
         throw new UnsupportedOperationException();
     }
 }
